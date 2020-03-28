@@ -36,11 +36,18 @@ How to set dnsmasq and iptables
 5. 从容器中拷贝  Copy from docker container  
   ```docker cp ubnt-mips-shadowsocks-libev:/opt/ss-mips/ss-bin .```
   
+6. 或者(取代上面4和5步骤)，直接将编译后的结果存放到本地目录中
+
+    ```docker run -it -v $(pwd)/mipsel:/opt/ss-mips/ss-bin/bin -v $(pwd)/entrypoint.sh:/opt/ss-mips/entrypoint.sh ubnt-mips-shadowsocks-libev```
+ 
+7. 或者对 entrypoint.sh 进行了某些修改（比如升级了某些版本号等），不想重新build docker的 Image
+
+    ```docker run -it -v $(pwd)/entrypoint.sh:/opt/ss-mips/entrypoint.sh ubnt-mips-shadowsocks-libev```  
+  
 ## mips 与 mips64
 由 ENV 参数 ARCHITECH 判断，默认生成 mips，需要 mips64 在第 4 步的时候替换成下面的命令  
 
 Controlled by ENV ARCHITECH, default build mips, you can set ARCHITECH="mips64" to build mips64 file.
 
   ```docker run -idt --name ubnt-mips-shadowsocks-libev -e ARCHITECH="mips64" ubnt-mips-shadowsocks-libev```
-
-
+ 
