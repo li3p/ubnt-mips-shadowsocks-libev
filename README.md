@@ -38,7 +38,7 @@ How to set dnsmasq and iptables
   
 6. 或者(取代上面4和5步骤)，直接将编译后的结果存放到本地目录中
 
-    ```docker run -it -v $(pwd)/mipsel:/opt/ss-mips/ss-bin/bin -v $(pwd)/entrypoint.sh:/opt/ss-mips/entrypoint.sh ubnt-mips-shadowsocks-libev```
+    ```docker run -it -v $(pwd)/mipsel:/opt/ss-mips/ss-bin/bin ubnt-mips-shadowsocks-libev```
  
 7. 或者对 entrypoint.sh 进行了某些修改（比如升级了某些版本号等），不想重新build docker的 Image
 
